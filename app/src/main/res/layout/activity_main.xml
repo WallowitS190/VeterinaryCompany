@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:id="@+id/nombre"
+        android:id="@+id/text_names"
         android:text="Nombre"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,14 +20,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nombre"
-        android:id="@+id/ingresaNombre"
+        android:layout_below="@id/text_names"
+        android:id="@+id/input_names"
         android:hint="ingrese nombre"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ingresaNombre"
-        android:id="@+id/apellido"
+        android:layout_below="@id/input_names"
+        android:id="@+id/text_lastNames"
         android:text="Apellido"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,15 +36,15 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/apellido"
+        android:layout_below="@id/text_lastNames"
         android:hint="ingrese apellido"
-        android:id="@+id/ingresaapellido"/>
+        android:id="@+id/input_lastNames"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/nacimiento"
+        android:id="@+id/text_birthday"
         android:text="Fecha de nacimiento"
-        android:layout_below="@id/ingresaapellido"
+        android:layout_below="@id/input_lastNames"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -52,14 +52,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nacimiento"
-        android:id="@+id/ingresafecha"
+        android:layout_below="@id/text_birthday"
+        android:id="@+id/input_birthday"
         android:hint="ingrese nombre"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ingresafecha"
-        android:id="@+id/direccion"
+        android:layout_below="@id/input_birthday"
+        android:id="@+id/text_address"
         android:text="Direccion"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,14 +68,14 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/direccion"
+        android:layout_below="@id/text_address"
         android:hint="ingrese apellido"
-        android:id="@+id/ingresadireccion"/>
+        android:id="@+id/input_address"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/ingresadireccion"
-        android:id="@+id/telefono"
+        android:layout_below="@id/input_address"
+        android:id="@+id/text_phone"
         android:text="Telefono"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,7 +84,16 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/telefono"
+        android:layout_below="@id/text_phone"
         android:hint="ingrese telefono"
-        android:id="@+id/ingresatelefono"/>
+        android:id="@+id/input_phone"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/input_phone"
+        android:layout_marginTop="10dp"
+        android:text="Guardar"
+        android:id="@+id/btn_create"
+        />
 </RelativeLayout>
