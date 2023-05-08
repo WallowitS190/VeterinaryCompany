@@ -2,13 +2,24 @@ package com.example.veterinarycompany.classes;
 
 public class Client {
     private String names, lastNames, birthday, address, phone;
+    private int id;
 
+    public Client() {
+    }
     public Client(String names, String lastNames, String birthday, String address, String phone) {
         this.names = names;
         this.lastNames = lastNames;
         this.birthday = birthday;
         this.address = address;
         this.phone = phone;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNames() {
