@@ -74,4 +74,72 @@ public class DbClient extends DbHelper {
 
         return listClients;
     }
+
+    public Client watchClient(int id){
+        dbHelper = new DbHelper(context);
+        db = dbHelper.getWritableDatabase();
+
+        Client clients = null;
+        Cursor cursorClients;
+
+        cursorClients = db.rawQuery("SELECT * FROM " + TABLE_CLIENT + " WHERE id = " + id + " LIMIT 1", null);
+
+        if(cursorClients.moveToFirst()){
+                clients = new Client();
+                clients.setId(cursorClients.getInt(0));
+                clients.setNames(cursorClients.getString(1));
+                clients.setLastNames(cursorClients.getString(2));
+                clients.setAddress(cursorClients.getString(3));
+                clients.setBirthday(cursorClients.getString(4));
+                clients.setPhone(cursorClients.getString(5));
+        }
+
+        cursorClients.close();
+
+        return clients;
+    }
+
+    public boolean editClient(int id,String names, String lastNames, String birthday, String address, String phone) {
+
+        boolean correct = false;
+        dbHelper = new DbHelper(context);
+        db = dbHelper.getWritableDatabase();
+
+        try {
+            db.execSQL("UPDATE " + TABLE_CLIENT + " SET names = '" + names + "', last_names = '" + lastNames +
+                    "', birthday = '" + birthday +"', address = '" + address +"', phone = '" + phone + "' WHERE id = '" + id + "' ");
+
+            correct = true;
+        }
+        catch(Exception ex) {
+            ex.toString();
+            correct = false;
+        }
+        finally {
+            db.close();
+        }
+
+        return correct;
+    }
+
+    public boolean deleteClient(int id) {
+
+        boolean correct = false;
+        dbHelper = new DbHelper(context);
+        db = dbHelper.getWritableDatabase();
+
+        try {
+            db.execSQL("DELETE FROM " + TABLE_CLIENT + " WHERE id = " + id);
+            correct = true;
+        }
+        catch(Exception ex) {
+            ex.toString();
+            correct = false;
+        }
+        finally {
+            db.close();
+        }
+
+        return correct;
+    }
 }

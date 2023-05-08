@@ -1,5 +1,7 @@
 package com.example.veterinarycompany.adaptadores;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +12,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.veterinarycompany.R;
+import com.example.veterinarycompany.activities.client.WatchClientActivity;
 import com.example.veterinarycompany.classes.Client;
 
 import java.util.ArrayList;
@@ -55,6 +58,16 @@ public class ListClientAdapter extends RecyclerView.Adapter<ListClientAdapter.Cl
             viewPhone  = itemView.findViewById(R.id.phoneClient);
             viewAddress  = itemView.findViewById(R.id.addressClient);
             viewDate = itemView.findViewById(R.id.dateClient);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Context context = view.getContext();
+                    Intent intent = new Intent(context, WatchClientActivity.class);
+                    intent.putExtra("ID",listClient.get(getAdapterPosition()).getId());
+                    context.startActivity(intent);
+                }
+            });
         }
     }
 
