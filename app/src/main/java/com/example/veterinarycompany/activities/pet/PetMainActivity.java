@@ -2,6 +2,7 @@ package com.example.veterinarycompany.activities.pet;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -29,8 +30,13 @@ public class PetMainActivity extends AppCompatActivity {
         binding.cardPetCreate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                onPetCreate();
             }
         });
+    }
+
+    private void onPetCreate(){
+        Intent intent = new Intent(this, CreatePetActivity.class);
+        startActivity(intent);
     }
 }
