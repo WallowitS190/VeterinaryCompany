@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.example.veterinarycompany.activities.client.ClientMainActivity;
+import com.example.veterinarycompany.activities.pet.PetMainActivity;
 import com.example.veterinarycompany.databinding.ActivityDefaultMainBinding;
 
 public class DefaultMainActivity extends AppCompatActivity {
@@ -26,10 +27,22 @@ public class DefaultMainActivity extends AppCompatActivity {
                 goToMainClient();
             }
         });
+
+        binding.cardItemPet.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToMainPet();
+            }
+        });
     }
 
     private void goToMainClient() {
         Intent intent = new Intent(this, ClientMainActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToMainPet() {
+        Intent intent = new Intent(this, PetMainActivity.class);
         startActivity(intent);
     }
 }

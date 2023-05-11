@@ -11,6 +11,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "veterinary.db";
     protected static final String TABLE_CLIENT = "t_client";
+    protected static final String TABLE_PET = "t_pet";
 
     public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -26,12 +27,23 @@ public class DbHelper extends SQLiteOpenHelper {
                 "birthday TEXT NOT NULL, " +
                 "address TEXT NOT NULL, "+
                 "phone TEXT NOT NULL)");
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_PET +
+                "(" + "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "names TEXT NOT NULL," +
+                "age TEXT NOT NULL," +
+                "race TEXT NOT NULL, " +
+                "sex TEXT NOT NULL, "+
+                "id_owner TEXT NOT NULL)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_CLIENT);
+        onCreate(sqLiteDatabase);
+
+        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_PET);
         onCreate(sqLiteDatabase);
     }
 }
