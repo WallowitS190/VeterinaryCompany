@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+    <item
+        android:id="@+id/option_goToMain"
+        android:title="Ir al menu principal"
+        app:showAsAction="never"
+    >
+    </item>
+
+    <item
+        android:id="@+id/option_goToClients"
+        android:title="Ir al menú de dueños"
+        app:showAsAction="never"
+        >
+    </item>
+
+    <item
+        android:id="@+id/option_goToPets"
+        android:title="Ir al menú de mascotas"
+        app:showAsAction="never"
+        >
+    </item>
+
+    <item
+        android:id="@+id/option_exit"
+        android:title="Salir"
+        app:showAsAction="never"
+        >
+
+    </item>
+
+
+</menu>

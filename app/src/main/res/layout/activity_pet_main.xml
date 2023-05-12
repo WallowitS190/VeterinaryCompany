@@ -9,7 +9,7 @@
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/ic_clients"
+        app:srcCompat="@drawable/ic_pets"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:id="@+id/image_logo"
@@ -70,7 +70,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_list_client"
+                    android:src="@drawable/ic_list_pets"
                     android:id="@+id/image_itemList"
                     />
 
@@ -107,7 +107,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:src="@drawable/ic_add_client"
+                    android:src="@drawable/ic_add_pet"
                     android:id="@+id/image_itemCreate"
                     />
 

@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 
 import com.example.veterinarycompany.classes.Client;
+import com.example.veterinarycompany.classes.Pet;
 
 import java.util.ArrayList;
 
@@ -41,7 +42,6 @@ public class DbPet extends DbHelper{
             values.put("id_owner", id_owner);
 
             id = db.insert(TABLE_PET, null, values);
-            Toast.makeText(context, "Llega esta monda " + id, Toast.LENGTH_SHORT).show();
         }
         catch(Exception ex) {
             ex.toString();
@@ -50,31 +50,31 @@ public class DbPet extends DbHelper{
         return id;
     }
 
-    public ArrayList<Client> viewAllPet(){
+    public ArrayList<Pet> viewAllPet(){
         dbHelper = new DbHelper(context);
         db = dbHelper.getWritableDatabase();
 
-        ArrayList<Client> listClients = new ArrayList<>();
-        Client clients = null;
-        Cursor cursorClients = null;
+        ArrayList<Pet> listPets = new ArrayList<>();
+        Pet pets = null;
+        Cursor cursorPets = null;
 
-        cursorClients = db.rawQuery("SELECT * FROM " + TABLE_CLIENT, null);
+        cursorPets = db.rawQuery("SELECT * FROM " + TABLE_PET, null);
 
-        if(cursorClients.moveToFirst()){
+        if(cursorPets.moveToFirst()){
             do {
-                clients = new Client();
-                clients.setId(cursorClients.getInt(0));
-                clients.setNames(cursorClients.getString(1));
-                clients.setLastNames(cursorClients.getString(2));
-                clients.setAddress(cursorClients.getString(3));
-                clients.setBirthday(cursorClients.getString(4));
-                clients.setPhone(cursorClients.getString(5));
-                listClients.add(clients);
-            } while (cursorClients.moveToNext());
+                pets = new Pet();
+                pets.setId(cursorPets.getInt(0));
+                pets.setName(cursorPets.getString(1));
+                pets.setAge(cursorPets.getInt(2));
+                pets.setRace(cursorPets.getString(3));
+                pets.setSex(cursorPets.getString(4));
+                pets.setOwner(cursorPets.getInt(5));
+                listPets.add(pets);
+            } while (cursorPets.moveToNext());
         }
-        cursorClients.close();
+        cursorPets.close();
 
-        return listClients;
+        return listPets;
     }
 
     public Client watchPet(int id){
