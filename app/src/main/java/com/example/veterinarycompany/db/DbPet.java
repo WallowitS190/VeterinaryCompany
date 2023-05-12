@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -28,18 +29,19 @@ public class DbPet extends DbHelper{
         values = new ContentValues();
     }
 
-    public long insertPet(String names, String lastNames, String birthday, String address, String phone) {
+    public long insertPet(String names, int age, String race, String sex, int id_owner) {
 
         long id = 0;
 
         try {
             values.put("names", names);
-            values.put("last_names", lastNames);
-            values.put("birthday", birthday);
-            values.put("address", address);
-            values.put("phone", phone);
+            values.put("age", age);
+            values.put("race", race);
+            values.put("sex", sex);
+            values.put("id_owner", id_owner);
 
-            id = db.insert(TABLE_CLIENT, null, values);
+            id = db.insert(TABLE_PET, null, values);
+            Toast.makeText(context, "Llega esta monda " + id, Toast.LENGTH_SHORT).show();
         }
         catch(Exception ex) {
             ex.toString();

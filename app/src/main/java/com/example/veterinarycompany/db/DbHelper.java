@@ -31,10 +31,10 @@ public class DbHelper extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_PET +
                 "(" + "id INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "names TEXT NOT NULL," +
-                "age TEXT NOT NULL," +
+                "age INTEGER NOT NULL," +
                 "race TEXT NOT NULL, " +
                 "sex TEXT NOT NULL, "+
-                "id_owner TEXT NOT NULL)");
+                "id_owner INTEGER NOT NULL)");
     }
 
     @Override

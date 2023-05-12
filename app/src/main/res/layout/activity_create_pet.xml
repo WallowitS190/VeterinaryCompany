@@ -41,12 +41,14 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_below="@id/text_titlePage"
         />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_names"
         android:id="@+id/input_name"
         android:hint="Ingrese el nobre"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,12 +59,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_age"
+        android:inputType="number"
         android:hint="Ingrese la edad de la mascota"
         android:id="@+id/input_age"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,12 +78,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_race"
         android:id="@+id/input_race"
         android:hint="Ingrese la fecha de cumpleaños"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -89,6 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,11 +113,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <EditText
+    <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/text_owner"
-        android:hint="Ingrese el telefono"
+        android:hint="Ingrese el dueño"
         android:id="@+id/input_owner"/>
 
     <Button
