@@ -108,13 +108,39 @@
         android:id="@+id/btn_login"
         android:backgroundTint="@color/purple_500"
         />
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="20dp"
         android:layout_below="@id/btn_login"
+        android:text="Nicolas Viana Castro"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:id="@+id/text_nicolas"
+        android:paddingHorizontal="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/text_nicolas"
+        android:text="William Sanabria Chavez"
+        android:gravity="center"
+        android:id="@+id/text_nathalia"
+        android:paddingHorizontal="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/text_nathalia"
+        android:text="Natalia Katherinne Paez"
+        android:gravity="center"
+        android:id="@+id/text_william"
+        android:paddingHorizontal="20dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/text_william"
         android:text="TM © 2023 - Derechos Reservados"
-        android:layout_marginTop="40dp"
         android:gravity="center"
         android:id="@+id/text_copy"
         android:paddingHorizontal="20dp"
