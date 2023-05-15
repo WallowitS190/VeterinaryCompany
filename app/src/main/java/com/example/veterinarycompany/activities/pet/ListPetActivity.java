@@ -17,17 +17,16 @@ public class ListPetActivity extends AppCompatActivity {
 
     RecyclerView listPets;
     ArrayList<Pet> listArrayPets;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_pet);
-
         listPets = findViewById(R.id.listPets);
         listPets.setLayoutManager(new LinearLayoutManager(this));
 
         DbPet dbPet = new DbPet(ListPetActivity.this);
 
+        listArrayPets = new ArrayList<>();
         ListPetAdapter adapter = new ListPetAdapter(dbPet.viewAllPet());
         listPets.setAdapter(adapter);
     }

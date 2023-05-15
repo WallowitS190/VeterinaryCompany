@@ -34,10 +34,8 @@ public class ListPetAdapter extends RecyclerView.Adapter<ListPetAdapter.PetViewH
     @Override
     public void onBindViewHolder(@NonNull ListPetAdapter.PetViewHolder holder, int position) {
         holder.viewName.setText(listPets.get(position).getName());
-        holder.viewAge.setText(listPets.get(position).getAge());
+        holder.viewAge.setText(String.valueOf(listPets.get(position).getAge()));
         holder.viewRace.setText(listPets.get(position).getRace());
-        holder.viewSex.setText(listPets.get(position).getSex());
-        holder.viewOwner.setText(listPets.get(position).getOwner());
     }
 
     @Override
@@ -47,16 +45,14 @@ public class ListPetAdapter extends RecyclerView.Adapter<ListPetAdapter.PetViewH
 
     public class PetViewHolder extends RecyclerView.ViewHolder{
 
-        TextView viewName, viewAge, viewRace,viewSex,viewOwner;
+        TextView viewName, viewAge, viewRace,viewSex;
 
         public PetViewHolder(@NonNull View itemView){
             super(itemView);
 
-            viewName  = itemView.findViewById(R.id.input_name);
-            viewAge  = itemView.findViewById(R.id.input_age);
-            viewRace  = itemView.findViewById(R.id.input_race);
-            viewSex  = itemView.findViewById(R.id.input_sex);
-            viewOwner = itemView.findViewById(R.id.input_owner);
+            viewName = itemView.findViewById(R.id.namePet);
+            viewAge = itemView.findViewById(R.id.agePet);
+            viewRace = itemView.findViewById(R.id.racePet);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -44,4 +44,21 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/agePet"
         android:layout_toEndOf="@id/image"/>
+
+    <TextView
+        android:id="@+id/dueno"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dueño: "
+        android:layout_below="@id/agePet"
+        android:layout_toEndOf="@id/image"
+        />
+
+    <TextView
+        android:id="@+id/ownerPet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/agePet"
+        android:layout_toEndOf="@id/dueno"/>
+
 </RelativeLayout>

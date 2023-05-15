@@ -6,14 +6,16 @@ public class Pet {
 
     public Pet() {}
 
-    public Pet(int id, String name, int age, String race, String sex, int owner) {
-        this.id = id;
-        this.age = age;
+    public Pet(String name, int age, String race, String sex, int owner) {
         this.name = name;
+        this.age = age;
         this.race = race;
         this.sex = sex;
         this.owner = owner;
     }
+    public int getId() { return id; }
+
+    public void setId(int id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -39,21 +41,11 @@ public class Pet {
         this.sex = sex;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public int getAge() {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
-    }
+    public void setAge(int age) { this.age = age; }
 
     public int getOwner() {
         return owner;
