@@ -9,7 +9,9 @@ import android.widget.CheckBox;
 import android.widget.Toast;
 
 import com.example.veterinarycompany.activities.DefaultMainActivity;
+import com.example.veterinarycompany.activities.user.CreateUserActivity;
 import com.example.veterinarycompany.databinding.ActivityMainBinding;
+import com.example.veterinarycompany.db.DbUser;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -36,6 +38,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        binding.textNewUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                goToLogin();
+            }
+        });
+
     }
 
     private void validateLogin() {
@@ -49,10 +58,15 @@ public class MainActivity extends AppCompatActivity {
         } else {
             if(!chkTermsAndConditions.isChecked()) {
                 Toast.makeText(this, "Debe aceptar los terminos y condiciones", Toast.LENGTH_SHORT).show();
-            } else if(inputUsername.equals("Admin") && inputPassword.equals("123")) {
-                goToPrincipal();
-            } else {
-                Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+            } else  {
+                DbUser dbUser = new DbUser(this);
+                boolean existUser = dbUser.existUser(inputUsername, inputPassword);
+
+                if(existUser) {
+                    goToPrincipal();
+                } else {
+                    Toast.makeText(this, "Credenciales incorrectas", Toast.LENGTH_SHORT).show();
+                }
             }
         }
 
@@ -60,6 +74,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void goToPrincipal() {
         Intent intent = new Intent(this, DefaultMainActivity.class);
+        startActivity(intent);
+    }
+
+    private void goToLogin() {
+        Intent intent = new Intent(this, CreateUserActivity.class);
         startActivity(intent);
     }
 
