@@ -13,7 +13,6 @@ import com.example.veterinarycompany.MainActivity;
 import com.example.veterinarycompany.R;
 import com.example.veterinarycompany.activities.DefaultMainActivity;
 import com.example.veterinarycompany.activities.client.ClientMainActivity;
-import com.example.veterinarycompany.activities.client.ListClientActivity;
 import com.example.veterinarycompany.databinding.ActivityPetMainBinding;
 
 public class PetMainActivity extends AppCompatActivity {
@@ -61,21 +60,15 @@ public class PetMainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case 1000054:
-                Intent intentGoToMain = new Intent(this, DefaultMainActivity.class);
-                startActivity(intentGoToMain);
-                break;
-
-            case 1000028:
-                Intent intentGoToClients = new Intent(this, ClientMainActivity.class);
-                startActivity(intentGoToClients);
-                break;
-
-            case 1000023:
-                Intent intentGoToExit = new Intent(this, MainActivity.class);
-                startActivity(intentGoToExit);
-                break;
+        if(item.getItemId() == R.id.option_goToMain) {
+            Intent intentGoToMain = new Intent(this, DefaultMainActivity.class);
+            startActivity(intentGoToMain);
+        } else if(item.getItemId() == R.id.option_goToClients) {
+            Intent intentGoToClients = new Intent(this, ClientMainActivity.class);
+            startActivity(intentGoToClients);
+        } else if(item.getItemId() == R.id.option_exit) {
+            Intent intentGoToExit = new Intent(this, MainActivity.class);
+            startActivity(intentGoToExit);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -60,12 +60,15 @@ public class DefaultMainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-
-            case 1000023:
-                Intent intentGoToExit = new Intent(this, MainActivity.class);
-                startActivity(intentGoToExit);
-                break;
+        if(item.getItemId() == R.id.option_goToClients) {
+            Intent intentGoToMain = new Intent(this, ClientMainActivity.class);
+            startActivity(intentGoToMain);
+        } else if(item.getItemId() == R.id.option_goToClients) {
+            Intent intentGoToClients = new Intent(this, ClientMainActivity.class);
+            startActivity(intentGoToClients);
+        } else if(item.getItemId() == R.id.option_exit) {
+            Intent intentGoToExit = new Intent(this, MainActivity.class);
+            startActivity(intentGoToExit);
         }
         return super.onOptionsItemSelected(item);
     }

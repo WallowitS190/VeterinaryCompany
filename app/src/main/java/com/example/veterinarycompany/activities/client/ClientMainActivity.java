@@ -2,14 +2,16 @@ package com.example.veterinarycompany.activities.client;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
 
 import com.example.veterinarycompany.MainActivity;
+import com.example.veterinarycompany.R;
 import com.example.veterinarycompany.activities.DefaultMainActivity;
 import com.example.veterinarycompany.activities.pet.PetMainActivity;
 import com.example.veterinarycompany.databinding.ActivityClientMainBinding;
@@ -18,6 +20,9 @@ import com.example.veterinarycompany.databinding.ActivityClientMainBinding;
 public class ClientMainActivity extends AppCompatActivity {
 
     ActivityClientMainBinding binding;
+    MenuView menuView;
+
+    public static int optionGoToMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,24 +55,25 @@ public class ClientMainActivity extends AppCompatActivity {
     }
 
     @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        switch (item.getItemId()) {
-            case 1000054:
-                Intent intentGoToMain = new Intent(this, DefaultMainActivity.class);
-                startActivity(intentGoToMain);
-                break;
-
-            case 1000053:
-                Intent intentGoToClients = new Intent(this, PetMainActivity.class);
-                startActivity(intentGoToClients);
-                break;
-
-            case 1000023:
-                Intent intentGoToExit = new Intent(this, MainActivity.class);
-                startActivity(intentGoToExit);
-                break;
+        if(item.getItemId() == R.id.option_goToMain) {
+            Intent intentGoToMain = new Intent(this, DefaultMainActivity.class);
+            startActivity(intentGoToMain);
+        } else if(item.getItemId() == R.id.option_goToPets) {
+            Intent intentGoToClients = new Intent(this, PetMainActivity.class);
+            startActivity(intentGoToClients);
+        } else if(item.getItemId() == R.id.option_exit) {
+            Intent intentGoToExit = new Intent(this, MainActivity.class);
+            startActivity(intentGoToExit);
         }
+
         return super.onOptionsItemSelected(item);
     }
 
