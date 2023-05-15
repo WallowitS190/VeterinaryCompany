@@ -98,12 +98,25 @@
         android:id="@+id/chk_termsAndConditions"
         />
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_below="@id/chk_termsAndConditions"
+        android:text="Registrarse"
+        android:gravity="center"
+        android:id="@+id/text_newUser"
+        android:paddingHorizontal="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
+        android:textSize="16dp"
+    />
+
     <Button
         android:layout_width="150dp"
         android:layout_height="50dp"
         android:text="Ingresar"
         android:layout_centerHorizontal="true"
-        android:layout_below="@id/chk_termsAndConditions"
+        android:layout_below="@id/text_newUser"
         android:layout_marginTop="20dp"
         android:id="@+id/btn_login"
         android:backgroundTint="@color/purple_500"

@@ -12,6 +12,7 @@ public class DbHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "veterinary.db";
     protected static final String TABLE_CLIENT = "t_client";
     protected static final String TABLE_PET = "t_pet";
+    protected static final String TABLE_USER = "t_user";
 
     public DbHelper(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -19,6 +20,13 @@ public class DbHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
+
+
+        sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_USER +
+                "(" + "id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "names TEXT NOT NULL," +
+                "username TEXT NOT NULL," +
+                "password TEXT NOT NULL)");
 
         sqLiteDatabase.execSQL("CREATE TABLE " + TABLE_CLIENT +
                 "(" + "id INTEGER PRIMARY KEY AUTOINCREMENT," +
